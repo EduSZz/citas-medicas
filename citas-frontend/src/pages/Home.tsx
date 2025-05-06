@@ -10,6 +10,7 @@ import AppointmentForm from '../components/AppoinmentForm';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
+  // Estado para almacenar las citas médicas
   const [appointments, setAppointments] = useState<Appointment[]>([]);
 
   // Obtener todas las citas
@@ -22,6 +23,7 @@ export default function Home() {
     }
   };
 
+  // Cargar las citas al montar el componente
   useEffect(() => {
     fetchAppointments();
   }, []);
@@ -32,17 +34,18 @@ export default function Home() {
 
     try {
       await deleteAppointment(id);
-      fetchAppointments();
+      fetchAppointments(); // Vuelve a obtener las citas actualizadas
     } catch (error) {
       alert('Error al eliminar la cita');
       console.error(error);
     }
   };
 
+  // Cambiar el estado de una cita
   const handleStatusChange = async (id: number, status: string) => {
     try {
       await updateAppointmentStatus(id, status);
-      fetchAppointments();
+      fetchAppointments(); // Actualiza las citas después de cambiar el estado
     } catch (error) {
       alert('Error al cambiar el estado');
       console.error(error);
@@ -55,8 +58,10 @@ export default function Home() {
         Gestión de Citas Médicas
       </h1>
 
+       {/* Formulario para crear una nueva cita */}
       <AppointmentForm onCreate={fetchAppointments} />
 
+      {/* Mostrar las citas existentes */}
       <div className="mt-12 grid gap-6 max-w-4xl mx-auto">
         {appointments.map((appt) => (
           <div key={appt.id} className="bg-white rounded-2xl shadow p-6 space-y-2">
@@ -97,6 +102,7 @@ export default function Home() {
               {new Date(appt.createdAt).toLocaleString()}
             </p>
 
+            {/* Botones para actualizar el estado o eliminar la cita */}
             <div className="pt-3 flex flex-wrap gap-2">
               <button
                 onClick={() => handleStatusChange(appt.id, 'pendiente')}
