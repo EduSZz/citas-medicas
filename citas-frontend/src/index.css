@@ -1,3 +1,5 @@
+/*Importación de las directivas base, components y utilities de Tailwind CSS para aplicar los estilos globales de la aplicación.*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
