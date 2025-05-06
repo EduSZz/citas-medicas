@@ -1,27 +1,31 @@
+// Componente para mostrar los detalles de una cita médica específica.
+
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api from '../services/api';
 import { Appointment } from '../types/Appoinment';
 
 export default function AppointmentDetails() {
-  const { id } = useParams();
-  const [appointment, setAppointment] = useState<Appointment | null>(null);
+  const { id } = useParams(); // Obtiene el ID de la cita de la URL
+  const [appointment, setAppointment] = useState<Appointment | null>(null); // Estado para almacenar los detalles de la cita
 
+  // Efecto para obtener los datos de la cita cuando el componente se monta o el id cambia
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await api.get('/');
-        const found = res.data.find((appt: Appointment) => appt.id === Number(id));
-        setAppointment(found || null);
+        const res = await api.get('/'); // Obtiene todas las citas desde la API
+        const found = res.data.find((appt: Appointment) => appt.id === Number(id)); // Busca la cita específica por ID
+        setAppointment(found || null); // Si se encuentra, guarda la cita en el estado, si no, null
       } catch (error) {
-        console.error('Error al obtener cita:', error);
+        console.error('Error al obtener cita:', error); // Maneja errores al obtener la cita
       }
     };
 
-    fetchData();
-  }, [id]);
+    fetchData(); // Llama a la función de obtención de datos
+  }, [id]); // Se ejecuta cada vez que el ID cambia
 
   if (!appointment) {
+    // Si no se encuentra la cita, muestra un mensaje de error
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
         <div className="bg-white p-6 rounded-xl shadow text-center space-y-4">
@@ -76,5 +80,7 @@ export default function AppointmentDetails() {
     </div>
   );
 }
+
+
 
 
