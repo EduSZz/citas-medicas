@@ -1,3 +1,8 @@
+/**
+ * Inicializa y exporta una conexión a la base de datos SQLite.
+ * Si no existe la tabla de citas, la crea automáticamente.
+ */
+
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 
@@ -7,6 +12,7 @@ export async function openDb() {
     driver: sqlite3.Database
   });
 
+ // Crea la tabla si no existe
   await db.exec(`
     CREATE TABLE IF NOT EXISTS appointments (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
