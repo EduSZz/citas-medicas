@@ -1,11 +1,14 @@
+//Componente que permite crear una nueva cita médica con validación y mensajes de éxito/error.
+
 import React, { useState } from 'react';
 import api from '../services/api';
 
 interface Props {
-  onCreate: () => void;
+  onCreate: () => void; // Función que se llama después de crear una cita
 }
 
 export default function AppointmentForm({ onCreate }: Props) {
+  // Estado para almacenar los valores del formulario
   const [patientName, setPatientName] = useState('');
   const [doctorName, setDoctorName] = useState('');
   const [appointmentDate, setAppointmentDate] = useState('');
@@ -13,9 +16,11 @@ export default function AppointmentForm({ onCreate }: Props) {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
+  // Función para manejar el envío del formulario
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Validación de campos vacíos
     if (!patientName || !doctorName || !appointmentDate || !reason) {
       setMessage('❗ Todos los campos son obligatorios.');
       return;
@@ -25,6 +30,7 @@ export default function AppointmentForm({ onCreate }: Props) {
     setMessage('');
 
     try {
+      // Enviar datos a la API para crear una nueva cita
       await api.post('/', {
         patientName,
         doctorName,
@@ -33,10 +39,12 @@ export default function AppointmentForm({ onCreate }: Props) {
       });
 
       setMessage('✅ Cita creada con éxito');
+      // Limpiar los campos del formulario
       setPatientName('');
       setDoctorName('');
       setAppointmentDate('');
       setReason('');
+      // Llamar a la función onCreate para actualizar el listado de citas
       onCreate();
     } catch (error) {
       setMessage('❌ Error al crear la cita');
@@ -53,6 +61,7 @@ export default function AppointmentForm({ onCreate }: Props) {
       <h2 className="text-xl font-bold mb-4 text-center text-blue-700">Crear Nueva Cita</h2>
 
       <div className="space-y-4">
+        {/* Campos del formulario */}
         <input
           type="text"
           placeholder="Nombre del paciente"
@@ -84,16 +93,16 @@ export default function AppointmentForm({ onCreate }: Props) {
           rows={3}
         />
 
+        {/* Botón de envío */}
         <button
           type="submit"
           disabled={loading}
-          className={`w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition ${
-            loading ? 'opacity-50 cursor-not-allowed' : ''
-          }`}
+          className={`w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
         >
           {loading ? 'Creando...' : 'Crear Cita'}
         </button>
 
+        {/* Mensajes de validación o error */}
         {message && (
           <p
             className={`text-sm mt-2 text-center ${
@@ -111,4 +120,5 @@ export default function AppointmentForm({ onCreate }: Props) {
     </form>
   );
 }
+
 
