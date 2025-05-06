@@ -1,3 +1,5 @@
+//Define las rutas de la API relacionadas con las citas médicas.
+
 import { Router } from 'express';
 import { getAppointments, createAppointment, updateAppointment, deleteAppointment, updateStatus } from '../controllers/appoinment.controller';
 import { body, param } from 'express-validator';
