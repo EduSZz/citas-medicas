@@ -1,3 +1,5 @@
+//Página principal donde se listan, crean y eliminan citas médicas.
+
 import React, { useEffect, useState } from 'react';
 import api, {
   deleteAppointment,
@@ -10,6 +12,7 @@ import { Link } from 'react-router-dom';
 export default function Home() {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
 
+  // Obtener todas las citas
   const fetchAppointments = async () => {
     try {
       const res = await api.get('/');
@@ -23,6 +26,7 @@ export default function Home() {
     fetchAppointments();
   }, []);
 
+   // Eliminar cita
   const handleDelete = async (id: number) => {
     if (!window.confirm('¿Estás seguro de eliminar esta cita?')) return;
 
