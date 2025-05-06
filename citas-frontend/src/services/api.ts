@@ -1,6 +1,5 @@
-// Autor: Andrés Santillán
-// Fecha: 05/05/2025
-// Descripción: Configuración de la instancia de Axios y funciones para interactuar con la API de citas médicas.
+
+//Configuración de la instancia de Axios y funciones para interactuar con la API de citas médicas.
 
 import axios from 'axios';
 
