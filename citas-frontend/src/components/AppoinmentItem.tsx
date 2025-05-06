@@ -1,8 +1,10 @@
+//Componente que muestra los detalles de una cita médica.
+
 import React from 'react';
-import { Appointment } from '../types/Appoinment';
+import { Appointment } from '../types/Appoinment'; // Importa el tipo de cita
 
 interface Props {
-  appointment: Appointment;
+  appointment: Appointment; // Propiedad que recibe la cita médica
 }
 
 export default function AppointmentItem({ appointment }: Props) {
