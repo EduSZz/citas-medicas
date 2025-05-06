@@ -1,7 +1,12 @@
+/**
+ * Controlador que gestiona la lógica para crear, obtener, eliminar y actualizar citas.
+ */
+
 import { Request, Response } from 'express';
 import { validationResult } from 'express-validator';
 import { openDb } from '../database/db';
 
+// Obtiene todas las citas
 export async function getAppointments(req: Request, res: Response) {
   try {
     const db = await openDb();
@@ -12,6 +17,7 @@ export async function getAppointments(req: Request, res: Response) {
   }
 }
 
+// Crea una nueva cita
 export async function createAppointment(req: Request, res: Response) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -33,6 +39,7 @@ export async function createAppointment(req: Request, res: Response) {
   }
 }
 
+//Actualiza una cita
 export async function updateAppointment(req: Request, res: Response) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -55,6 +62,7 @@ export async function updateAppointment(req: Request, res: Response) {
   }
 }
 
+// Elimina una cita por ID
 export async function deleteAppointment(req: Request, res: Response) {
   const { id } = req.params;
 
@@ -67,6 +75,7 @@ export async function deleteAppointment(req: Request, res: Response) {
   }
 }
 
+//Actualiza el estado de una cita
 export async function updateStatus(req: Request, res: Response) {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
