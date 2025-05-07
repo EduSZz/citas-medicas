@@ -23,12 +23,10 @@ cd citas-medicas
 2. Instalar dependencias
 Ejecuta en ambas carpetas (backend y frontend):
 
-bash
+```bash
 # Usando npm (recomendado):
 npm install
-
-# Opcionalmente con pnpm:
-pnpm install
+```
 
 🚀 Ejecución local
 Iniciar el Backend:
