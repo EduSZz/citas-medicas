@@ -20,7 +20,7 @@ git clone https://github.com/EduSZz/citas-medicas.git
 cd citas-medicas
 ```
 
-2. Instalar dependencias
+### 2. Instalar dependencias
 Ejecuta en ambas carpetas (backend y frontend):
 
 ```bash
