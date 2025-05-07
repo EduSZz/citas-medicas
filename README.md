@@ -8,7 +8,7 @@ Aplicación web para gestionar citas médicas, desarrollada con Node.js (Backend
 - **Frontend**: React.js + TypeScript
 - **Base de datos**: SQLite
 - **Estilos**: Tailwind CSS
-- **Runtime**: pnpm (opcionalmente compatible con npm/yarn)
+- **Runtime**: npm
 
 ## 📦 Instalación y Configuración
 
