@@ -46,13 +46,3 @@ cd frontend
 npm start
 ```
 La aplicación se abrirá en http://localhost:3000
-
-📌 Estructura del Proyecto
-citas-medicas/
-├── backend/           # API REST (Node.js + TypeScript)
-│   ├── src/           # Código fuente
-│   └── database.sqlite # Base de datos (auto-generada)
-├── frontend/          # Aplicación React
-│   ├── public/        # Assets estáticos
-│   └── src/          # Componentes y lógica
-└── README.md          # Este archivo
