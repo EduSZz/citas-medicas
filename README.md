@@ -28,7 +28,7 @@ Ejecuta en ambas carpetas (backend y frontend):
 npm install
 ```
 
-🚀 Ejecución local
+## 🚀 Ejecución local
 Iniciar el Backend:
 
 ```bash
