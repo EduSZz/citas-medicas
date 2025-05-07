@@ -1,6 +1,6 @@
 # 🏥 Sistema de Citas Médicas
 
-Aplicación web para gestionar citas médicas, desarrollada con Node.js (Backend) y React (Frontend). Permite a los usuarios agendar, visualizar y administrar citas de manera eficiente.
+Aplicación web para gestionar citas médicas, desarrollada con Node.js (Backend) y React (Frontend). Permite al administrador agendar, visualizar y administrar citas de manera eficiente.
 
 ## 🛠 Tecnologías Utilizadas
 
