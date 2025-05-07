@@ -11,7 +11,7 @@ export default function Navbar() {
         </h1>
         <nav>
           <Link
-            to="/" // Enlace a la página de inicio
+            to="/" // Enlace hacia la página de inicio
             className="text-white hover:text-blue-200 font-medium transition"
           >
             Inicio
