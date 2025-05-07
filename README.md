@@ -32,7 +32,7 @@ npm install
 Iniciar el Backend:
 
 ```bash
-cd backend
+cd citas-backend
 npm run dev
 ```
 El servidor se ejecutará en http://localhost:3001
@@ -40,7 +40,7 @@ El servidor se ejecutará en http://localhost:3001
 Iniciar el Frontend (en otra terminal):
 
 ```bash
-cd frontend
+cd citas-frontend
 npm start
 ```
 La aplicación se abrirá en http://localhost:3000
